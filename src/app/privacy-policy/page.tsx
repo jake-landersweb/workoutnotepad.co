@@ -1,5 +1,6 @@
 import MarkdownRenderer from "@/components/markdownRenderer/markdownRenderer";
 import SafeArea from "@/components/safeArea";
+import { Metadata } from "next";
 
 const PRIVACY_POLICY = `
 Thank you for choosing to use our product, Workout Note pad. Here at Sapphire NW, we strive to produce the best quality apps, with data usage and user privacy in mind. If you have any questions or concerns about any of the terms listed in this agreement, please do not hesitate to contact us at support@workoutnotepad.co. We will personally read and reply to your message.
@@ -132,6 +133,10 @@ If you have questions or comments about this notice, you may contact our Data Pr
 
 Landersweb LLC Jake Landers 14355 sw racely place tigard, OR 97224 United States
 `
+
+export const metadata: Metadata = {
+    title: "W. Notepad - Privacy Policy",
+}
 
 export default function PrivacyPolicy() {
     return <SafeArea>
