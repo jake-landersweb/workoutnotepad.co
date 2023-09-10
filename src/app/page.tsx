@@ -3,7 +3,7 @@ import PhoneAsset from '@/components/phoneAsset'
 
 export default function Home() {
   return <main className='space-y-8'>
-    <div className="grid place-items-center min-h-[90vh] py-[200px] sm:py-0">
+    <div className="grid place-items-center min-h-[90vh] sm:py-0">
       <div className="space-y-2">
         <h1 className='text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight text-center'>Workout Notepad</h1>
         <p className='text-center text-md md:text-2xl text-txt-200'>The Gym Notebook Replacement. Download Today</p>

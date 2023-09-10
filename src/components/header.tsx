@@ -53,7 +53,7 @@ export default function Header() {
         </div>
     }
 
-    return <div className="w-screen bg-cell-200 px-8 py-4 shadow-2xl z-50">
+    return <div className="w-screen bg-cell-200 px-8 py-2 md:py-4 shadow-2xl z-50">
         <SafeArea>
             <div className={`flex justify-between`}>
                 <div className="w-fit">
@@ -72,7 +72,7 @@ export default function Header() {
                     <BsChevronCompactUp className="text-cell-700" size={30} />
                 </button>
             </div>
-            <div className={`transition-all duration-500 ${toggle ? 'h-[80vh] md:h-[40vh] opacity-100' : 'h-0 opacity-0'} overflow-hidden flex items-center justify-start"`}>
+            <div className={`transition-all duration-500 ${toggle ? 'h-[70vh] md:h-[40vh] opacity-100' : 'h-0 opacity-0'} overflow-hidden flex items-center justify-start"`}>
                 {footer()}
             </div>
         </SafeArea>

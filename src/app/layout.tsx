@@ -99,7 +99,9 @@ export default function RootLayout({
       <body>
         <Providers>
           <header className='wn fixed bottom-0 z-50'><Header /></header>
-          {children}
+          <div className="pb-[200px] pt-4">
+            {children}
+          </div>
         </Providers>
       </body>
     </html>

@@ -4,10 +4,10 @@ import React from "react";
 import { Input, Button, Switch } from "@nextui-org/react";
 import { useState } from "react";
 
-export default function Form() {
-    const [email, setEmail] = useState("")
+export default function Form({ xemail, xuserId, xtype }: { xemail?: string, xuserId?: string, xtype?: string }) {
+    const [email, setEmail] = useState(xemail ?? "")
     const [name, setName] = useState("")
-    const [type, setType] = useState("Feedback")
+    const [type, setType] = useState(xtype ?? "Feedback")
     const [message, setMessage] = useState("")
     const [canContact, setCanContact] = useState(true)
 
@@ -32,6 +32,7 @@ export default function Form() {
 
         // send the request
         let encoded = JSON.stringify({
+            "userId": xuserId ?? "",
             "email": email,
             "message": message,
             "canContact": canContact,
@@ -68,7 +69,7 @@ export default function Form() {
     }, [email]);
 
     const supportType = () => {
-        const options = ["Bug Report", "App Issue", "Purchase Issue", "Feedback", "Feature Request", "Other"]
+        const options = ["App Issue", "Premium Issue", "Feedback", "Feature Request", "Data Export", "Other"]
 
         const items: JSX.Element[] = []
 
@@ -87,7 +88,7 @@ export default function Form() {
 
     return <div className="grid place-items-center min-h-[90vh] px-4">
         <div className="space-y-2 max-w-2xl w-full">
-            <h2 className="text-xl pl-4">We Would Love To Hear From You</h2>
+            <h2 className="text-2xl font-medium tracking-tight text-center">We Would Love To Hear From You</h2>
             <div className="bg-cell-200 rounded-lg p-4">
                 <Input
                     variant="underlined"
