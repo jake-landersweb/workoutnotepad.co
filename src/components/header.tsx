@@ -26,6 +26,14 @@ export default function Header() {
                 <ul className="text-txt-100">
                     <li className="mb-4">
                         <Link props={{
+                            href: "/screenshots",
+                            child: <>Screenshots</>,
+                            isExternal: false,
+                            className: "hover:underline"
+                        }} />
+                    </li>
+                    <li className="mb-4">
+                        <Link props={{
                             href: "/support",
                             child: <>Support</>,
                             isExternal: false,
@@ -69,7 +77,7 @@ export default function Header() {
                 </div>
 
                 <button className={`transition-all duration-500 ${toggle ? 'rotate-180' : ''}`} onClick={() => setToggle(!toggle)}>
-                    <BsChevronCompactUp className="text-cell-700" size={30} />
+                    <BsChevronCompactUp className="text-cell-900" size={30} />
                 </button>
             </div>
             <div className={`transition-all duration-500 ${toggle ? 'h-[70vh] md:h-[40vh] opacity-100' : 'h-0 opacity-0'} overflow-hidden flex items-center justify-start"`}>
