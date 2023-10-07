@@ -2,7 +2,7 @@ import Form from "@/components/form";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "W. Notepad - Privacy Policy",
+    title: "W. Notepad - Support",
 }
 
 export default function Support({ params, searchParams }) {

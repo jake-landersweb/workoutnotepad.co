@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Jake', url: 'https://sapphirenw.com' }],
   colorScheme: 'light',
   creator: "Jake Landers",
-  themeColor: "#418a2f",
   publisher: "Sapphire NW",
   referrer: 'origin-when-cross-origin',
   openGraph: {
