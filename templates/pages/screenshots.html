@@ -1,0 +1,31 @@
+{{extends "base.html"}}
+
+{{define "script"}}
+<script>
+    Alpine.data('screenshots', () => ({
+        items: [
+            { src: "/public/images/app-store/screenshot-1.png", alt: "screenshot-1" },
+            { src: "/public/images/app-store/screenshot-2.png", alt: "screenshot-2" },
+            { src: "/public/images/app-store/screenshot-3.png", alt: "screenshot-3" },
+            { src: "/public/images/app-store/screenshot-4.png", alt: "screenshot-4" },
+            { src: "/public/images/app-store/screenshot-5.png", alt: "screenshot-5" },
+            { src: "/public/images/app-store/screenshot-6.png", alt: "screenshot-6" },
+            { src: "/public/images/app-store/screenshot-7.png", alt: "screenshot-7" },
+        ],
+    }));
+</script>
+{{end}}
+
+{{define "content"}}
+
+<div x-data="screenshots" class="grid place-items-center px-4">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-fit">
+        <template x-for="item in items">
+            <div class="rounded-2xl border border-cell-700 overflow-clip">
+                <img x-bind:src="item.src" x-bind:alt="item.alt" class="object-scale-down max-h-[500px]" />
+            </div>
+        </template>
+    </div>
+</div>
+
+{{end}}

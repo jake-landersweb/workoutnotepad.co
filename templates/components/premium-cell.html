@@ -1,0 +1,9 @@
+<div class="hero">
+    <div class="hero-content flex-col text-center lg:text-left lg:flex-row {{if .Rev}}lg:flex-row-reverse{{end}}">
+        <div>
+            <h1 class="text-3xl font-bold">{{.Title}}</h1>
+            <p class="py-4">{{.Desc}}</p>
+        </div>
+        <img src="{{.Src}}" alt="{{.Alt}}" class="max-w-sm rounded-[30px] max-h-[400px] shadow-2xl bg-black p-[4px]" />
+    </div>
+</div>

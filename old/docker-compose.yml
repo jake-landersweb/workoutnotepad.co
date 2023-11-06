@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  sapphirenw:
+    container_name: workout_notepad
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 3014:3000
+    volumes:
+      - .:/workout_notepad

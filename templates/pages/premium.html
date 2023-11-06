@@ -1,0 +1,14 @@
+{{extends "base.html"}}
+
+{{define "content"}}
+
+<div class="max-w-3xl mx-auto">
+    <!-- <template x-for="view in views">
+        <div x-html="premiumCell(view)"></div>
+    </template> -->
+    {{range .}}
+    {{template "premium-cell.html" .}}
+    {{end}}
+</div>
+
+{{end}}

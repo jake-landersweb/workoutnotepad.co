@@ -1,11 +1,7 @@
-const { nextui } = require("@nextui-org/react");
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
-  ],
+  mode: 'jit',
+  content: ['./templates/**/*.html'],
   theme: {
     extend: {
       colors: {
@@ -42,24 +38,26 @@ module.exports = {
       }
     },
   },
-  plugins: [
-    nextui({
-      prefix: "nextui", // prefix for themes variables
-      addCommonColors: false, // override common colors (e.g. "blue", "green", "pink").
-      defaultTheme: "wn", // default theme from the themes object
-      defaultExtendTheme: "wn", // default theme to extend on custom themes
-      layout: {}, // common layout tokens (applied to all themes)
-      themes: {
-        wn: {
-          layout: {},
-          colors: {
-            background: "#e1dcd2",
-            primary: "#418a2f"
-          },
+  daisyui: {
+    themes: [
+      {
+        wnTheme: {
+          "primary": "#418a2f",
+          "secondary": "#ff6f61",
+          "accent": "#88D076",
+          "neutral": "#F5F0E6",
+          "base-100": "#e1dcd2",
+          "info": "#F9F7F1",
+          "success": "#418a2f",
+          "warning": "#fbbd23",
+          "error": "#D1495B",
         },
       },
-    }),
+    ],
+  },
+  plugins: [
     require('@tailwindcss/typography'),
+    require("daisyui"),
   ],
 }
 
