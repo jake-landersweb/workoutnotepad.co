@@ -10,3 +10,4 @@ services:
       - 3014:3000
     volumes:
       - .:/workout_notepad
+    restart: unless-stopped
