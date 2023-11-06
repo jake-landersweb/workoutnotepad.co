@@ -55,6 +55,8 @@ func EventSupportForm(w http.ResponseWriter, r *http.Request) (string, int) {
 		fmt.Printf("Error sending request: %s\n", err)
 		return "There was an issue sending the request", 500
 	}
+
+	defer resp.Body.Close()
 	if resp.StatusCode == 200 {
 		return "Successfully sent your message", 200
 	} else {

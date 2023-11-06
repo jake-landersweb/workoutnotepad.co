@@ -24,6 +24,9 @@ RUN find ./public/js -name '*.js' -exec uglifyjs --compress --mangle --output {}
 # Go stage to build the Go application
 FROM golang:alpine as go-builder
 
+# Install CA certificates
+RUN apk --no-cache add ca-certificates
+
 # Set the working directory
 WORKDIR /app
 
@@ -41,6 +44,9 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
 # Final stage to prepare the runtime image
 FROM scratch
+
+# Copy the CA certificates
+COPY --from=go-builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
 # Copy the Go binary
 COPY --from=go-builder /app/main .
