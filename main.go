@@ -100,6 +100,8 @@ func main() {
 		w.Write(file)
 	})
 
+	r.Get("/sitemap.xml", routes.Sitemap)
+
 	/*
 		##############################################################################
 		# Routes
