@@ -2,9 +2,9 @@
 
 Thank you for choosing to use our product, Workout Note pad. Here at Sapphire NW, we strive to produce the best quality apps, with data usage and user privacy in mind. If you have any questions or concerns about any of the terms listed in this agreement, please do not hesitate to contact us at support@workoutnotepad.co. We will personally read and reply to your message.
 
-When you visit our website and/or mobile app, we recognize that you are trusting us with some of your personal information. We take your privacy very seriously, and want to disclose the how and why of what information we collect, without bogging you down with legal jargin.
+When you visit our website and/or mobile app, we recognize that you are trusting us with some of your personal information. We take your privacy very seriously, and want to disclose the how and why of what information we collect, without bogging you down with legal jargon.
 
-This notice applies to all information collected through our services, which includes our websites and mobile applications, as well as any related email, marketing, sales, or events. If there are any terms in this privacy policty that you disagree with, discontinue use of our services immediately.
+This notice applies to all information collected through our services, which includes our websites and mobile applications, as well as any related email, marketing, sales, or events. If there are any terms in this privacy policy that you disagree with, discontinue use of our services immediately.
 
 ## Information Collected
 
@@ -13,7 +13,7 @@ We collect different types of personal information from our users to provide an 
 - **Email Addresses**: We collect your email address when you register an account with us. Your email is used for account management purposes, such as resetting passwords, sending notifications, and delivering other important updates. We also use your email as a unique identifier for your account.
 - **Images and Videos**: Our App includes sections where users can upload images and videos. These visuals help personalize your interactions and give insights into how certain exercises are performed.
 - **Mobile Notifications**: With your consent, we may access and send push notifications to your mobile device to provide important app updates and other relevant information.
-- **Analytics**: We track usage data through Google analytics and New Relic, which anonymously gives us usage information, geographic location data, crash data, and more. Google Analytics is a third-party service and its use of your information is governed by its own privacy policy. We recommend you review this policy for more information. New Relic is a third-party service and its use of your information is governed by its own privacy policy. We recommend you review this policy for more information.
+- **Analytics**: We track usage data through Google Analytics and New Relic, which anonymously gives us usage information, geographic location data, crash data, and more. Google Analytics is a third-party service and its use of your information is governed by its own privacy policy. We recommend you review this policy for more information. New Relic is a third-party service and its use of your information is governed by its own privacy policy. We recommend you review this policy for more information.
 - **Device Information**: We determine which operating system and device name you use to show you a more seamless app experience in-line with your operating system (i.e. Apple iOS, Google Android). We use this device information to better diagnose issues our users are having on various platforms.
 
 It's important to understand that providing the above data is not mandatory, but some functionalities of the app may not be accessible if you choose not to provide this information.

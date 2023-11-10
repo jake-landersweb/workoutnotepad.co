@@ -5,7 +5,7 @@ import { Metadata } from "next";
 const PRIVACY_POLICY = `
 Thank you for choosing to use our product, Workout Note pad. Here at Sapphire NW, we strive to produce the best quality apps, with data usage and user privacy in mind. If you have any questions or concerns about any of the terms listed in this agreement, please do not hesitate to contact us at support@workoutnotepad.co. We will personally read and reply to your message.
 
-When you visit our website and/or mobile app, we recognize that you are trusting us with some of your personal information. We take your privacy very seriously, and want to disclose the how and why of what information we collect, without bogging you down with legal jargin.
+When you visit our website and/or mobile app, we recognize that you are trusting us with some of your personal information. We take your privacy very seriously, and want to disclose the how and why of what information we collect, without bogging you down with legal jargon.
 
 This notice applies to all information collected through our services, which includes our websites and mobile applications, as well as any related email, marketing, sales, or events. If there are any terms in this privacy policty that you disagree with, discontinue use of our services immediately.
 

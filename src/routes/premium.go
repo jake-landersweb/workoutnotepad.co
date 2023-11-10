@@ -20,13 +20,13 @@ func Premium(w http.ResponseWriter, r *http.Request) {
 	items := []*PremiumCell{
 		{
 			Title: "Comprehensive Exercise Graphs",
-			Desc:  "View powerful yet flexible graphs on all of the exercises you have logged. View your reps or weight distribution grouped by either set number or date it was logged. Gone are the days of excel charts and graphs, viewing your progress in an interactive way has never been easier.",
+			Desc:  "View powerful yet flexible graphs on all of the exercises you have logged. View your reps or weight distribution grouped by either set number or date it was logged. Gone are the days of Excel charts and graphs, viewing your progress in an interactive way has never been easier.",
 			Src:   "/public/images/previews/reps-graph-600px.png",
 			Alt:   "Reps Graph",
 		},
 		{
 			Title: "Workout Category Distribution",
-			Desc:  "View powerful yet flexible graphs on all of the exercises you have logged. View your reps or weight distribution grouped by either set number or date it was logged. Gone are the days of excel charts and graphs, viewing your progress in an interactive way has never been easier.",
+			Desc:  "View powerful yet flexible graphs on all of the exercises you have logged. View your reps or weight distribution grouped by either set number or date it was logged. Gone are the days of Excel charts and graphs, viewing your progress in an interactive way has never been easier.",
 			Src:   "/public/images/previews/categories-600px.png",
 			Alt:   "Categories Graph",
 		},
@@ -50,13 +50,13 @@ func Premium(w http.ResponseWriter, r *http.Request) {
 		},
 		{
 			Title: "Cloud Backups",
-			Desc:  "Automatic data backup to the cloud! Exerytime your data changes or every 8 hours (whatever comes first) your app data is backed up to the cloud. Your last 10 backups are saved, and you can restore your app from any point in time.",
+			Desc:  "Automatic data backup to the cloud! Every time your data changes or every 8 hours (whichever comes first) your app data is backed up to the cloud. Your last 10 backups are saved, and you can restore your app from any point in time.",
 			Src:   "/public/images/previews/backup-600px.png",
 			Alt:   "Cloud Backups",
 		},
 		{
 			Title: "Tag Distribution",
-			Desc:  "See how often you log your exercises by various tags as a part of our exercise graph suite. Are you pushing yourself to failure enough? Combined with custom defined tags, this graph can be a powerful exercise quality indicator.",
+			Desc:  "See how often you log your exercises by various tags as part of our exercise graph suite. Are you pushing yourself to failure enough? Combined with custom defined tags, this graph can be a powerful exercise quality indicator.",
 			Src:   "/public/images/previews/tag-exercise-600px.png",
 			Alt:   "Exercise Tags",
 		},
