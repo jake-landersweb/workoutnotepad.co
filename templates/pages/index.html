@@ -4,12 +4,31 @@
 <div class="grid place-items-center sm:py-0">
     <div class="space-y-2">
         <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight text-center">Workout Notepad</h1>
-        <p class="text-center text-md md:text-2xl text-txt-200">The Gym Notebook Replacement. Download Today</p>
+        <p class="text-center text-md md:text-2xl max-w-2xl text-txt-200">The Gym Notebook Replacement. Plan, track, and
+            visualize
+            your workouts in the most seamless, feature rich, and polished app on the stores today.</p>
         {{template "download-buttons.html"}}
-        <div class="grid place-items-center pt-8">
-            <img src="/public/images/wn-graphic.png" alt="Workout Notepad Graphic"
-                class="object-scale-down max-h-[50vh]" />
+        <div class="grid place-items-center">
+            <a href="/premium" class="btn btn-primary">Explore Premium</a>
         </div>
+
+        <div class="p-8 space-y-8">
+            <div class="grid place-items-center pt-8">
+                <img src="/public/images/wn-graphic.png" alt="Workout Notepad Graphic"
+                    class="object-scale-down max-h-[50vh]" />
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                {{range .Items}}
+                {{template "premium-cell.html" .}}
+                {{end}}
+            </div>
+
+            <div class="grid place-items-center">
+                <a href="/premium" class="btn btn-primary">All Visualization Features</a>
+            </div>
+        </div>
+
     </div>
 </div>
 {{end}}

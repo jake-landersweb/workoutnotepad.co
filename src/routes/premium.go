@@ -7,14 +7,6 @@ import (
 	"github.com/jake-landersweb/workoutnotepad.co/src/xtempl"
 )
 
-type PremiumCell struct {
-	Title string
-	Desc  string
-	Src   string
-	Alt   string
-	Rev   bool
-}
-
 func Premium(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 	items := []*PremiumCell{

@@ -2249,6 +2249,14 @@ html {
   z-index: 50;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
+.m-8 {
+  margin: 2rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -2433,6 +2441,12 @@ html {
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
+.space-y-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -2523,6 +2537,18 @@ html {
 
 .p-\[4px\] {
   padding: 4px;
+}
+
+.p-\[6px\] {
+  padding: 6px;
+}
+
+.p-\[8px\] {
+  padding: 8px;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .px-2 {
