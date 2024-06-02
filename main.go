@@ -142,6 +142,14 @@ func main() {
 		}
 	})
 
+	r.Get("/eula", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/html")
+		if err := xtempl.XT.ExecuteTemplate(w, "eula.html", nil); err != nil {
+			fmt.Println(err)
+			http.Error(w, "There was an issue rendering the template", http.StatusInternalServerError)
+		}
+	})
+
 	r.Get("/premium", routes.Premium)
 
 	/*
