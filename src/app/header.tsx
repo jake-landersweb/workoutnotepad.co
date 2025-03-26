@@ -24,41 +24,6 @@ type HeaderItem = {
 }
 
 export default function Header() {
-    const features: HeaderItem[] = [
-        {
-            title: "AI Consulting",
-            href: "/ai",
-            description: "Learn how we use AI intelligently to enhance your business.",
-        },
-        {
-            title: "App Development",
-            href: "/app-development",
-            description: "Web, desktop, and mobile app development built natively for you.",
-        },
-        {
-            title: "Infrastructure",
-            href: "/infrastructure",
-            description: "Servers, databases, authentication, and more.",
-        },
-    ]
-
-    const products: HeaderItem[] = [
-        {
-            title: "Workout Notepad",
-            href: "workout-notepad",
-            description: "Powerful but flexible exercise mobile application.",
-        },
-        {
-            title: "Crosscheck Sports",
-            href: "crosscheck-sports",
-            description: "Power your own sports team with a feature-rich web and mobile app.",
-        },
-        {
-            title: "AI Thing",
-            href: "ai-thing",
-            description: "State of the art AI development platform to power your integrations.",
-        },
-    ]
 
     const download: HeaderItem[] = [
         {
@@ -118,22 +83,24 @@ export default function Header() {
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger>Features</NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                            {createItems(features)}
-                        </NavigationMenuContent>
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                        <NavigationMenuTrigger>Products</NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                            {createItems(products)}
-                        </NavigationMenuContent>
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
                         <NavigationMenuTrigger>Download</NavigationMenuTrigger>
                         <NavigationMenuContent>
                             {createItems(download)}
                         </NavigationMenuContent>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link href="/premium" legacyBehavior passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                Premium
+                            </NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link href="/screenshots" legacyBehavior passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                Screenshots
+                            </NavigationMenuLink>
+                        </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <Link href="https://docs.workoutnotepad.co" legacyBehavior passHref>
@@ -178,14 +145,6 @@ export default function Header() {
                             className="shrink-0"
                         />
                     </Link>
-                    <div className="">
-                        <h3>Features</h3>
-                        {createItems(features, false)}
-                    </div>
-                    <div className="">
-                        <h3>Products</h3>
-                        {createItems(products, false)}
-                    </div>
                     <div className="">
                         <h3>Download</h3>
                         {createItems(download, false)}

@@ -41,6 +41,10 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL(BASE_URL),
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: TITLE,
     description: DESC,
@@ -101,15 +105,15 @@ export default function RootLayout({
         fontSans.variable
       )}
     >
-        <main className="w-full h-full min-h-screen flex flex-col justify-between">
-          <Header />
-          {children}
-          <div className="absolute -z-10 inset-0 h-full w-full 
+      <main className="w-full h-full min-h-screen flex flex-col justify-between">
+        <Header />
+        {children}
+        <div className="absolute -z-10 inset-0 h-full w-full 
 bg-[radial-gradient(circle,#73737350_1px,transparent_1px)] 
 bg-[size:20px_20px] 
 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_80%,transparent_100%)]"></div>
-          {/* <Footer /> */}
-        </main>
+        {/* <Footer /> */}
+      </main>
     </body>
   </html>
 }
