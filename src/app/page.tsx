@@ -2,87 +2,61 @@ import LottiePlayer from "@/components/lottie-player";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import lottieJson from '../../public/lottie/woman-workout.json'
+import Link from "next/link";
+import { ButtonStoreApple, ButtonStoreGoogle } from "@/components/store-buttons";
 
 export default function Home() {
   return <div className="">
     {/* <div className="z-[-10] bg-[url('/images/eye.jpg')] bg-cover bg-no-repeat bg-opacity-30 absolute top-0 left-0 w-[100%] h-[100vh] x-[-1]"></div> */}
-    <div className="z-[-10] bg-background opacity-70 absolute top-0 left-0 w-[100%] h-[100vh]"></div>
+    <div className="absolute -z-10 inset-0 h-full w-full 
+            bg-[radial-gradient(circle,#73737350_1px,transparent_1px)] 
+            bg-[size:30px_30px]"/>
     <div className="relative z-10">
       <div className="safe-area">
-        <div data-aos="fade-up" className="px-4 min-h-[70vh] md:min-h-[80vh] space-y-8 text-lt mt-8 md:mt-16">
-          <h1 className='text-4xl md:text-5xl tracking-wide font-bold mx-auto text-center'>
-            The most advanced gym tracking and visualization platform.
-          </h1>
-          <div className="justify-center items-center flex space-x-2">
-            <div className="">
-              <Button size="lg" variant="secondary" className="text-black" asChild>
-                <a href="https://apps.apple.com/pk/app/workout-notepad/id6453561144" rel="noopener noreferrer" target="_blank"
-                  className="">
-                  <div className="inline-flex items-center justify-center">
-                    <svg className="mr-3 w-7 h-7 resize-none" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="apple"
-                      role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                      <path fill="currentColor"
-                        d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z">
-                      </path>
-                    </svg>
-                    <div className="text-left">
-                      <div className="mb-1 text-xs">Download on the</div>
-                      <div className="-mt-1 font-sans text-sm font-semibold">App Store</div>
-                    </div>
-                  </div>
-                </a>
-              </Button>
+        <div data-aos="fade-up" className="px-4 h-[800px] overflow-hidden space-y-8 text-lt mt-8 md:mt-16">
+          <div className="">
+            <div className="text-center space-y-4">
+              <h1 className='txt-title'>
+                A Workout App Designed to Get Out of Your Way.
+              </h1>
+              <p className='text-lg md:text-xl max-w-2xl mx-auto'>
+                Workout Notepad gives you an easy way to input your workout data paired with a best-in-class visualization engine.
+              </p>
             </div>
-            <div className="">
-              <Button size="lg" variant="secondary" className="text-black" asChild>
-                <a href="https://play.google.com/store/apps/details?id=com.landersweb.workout_notepad_v2"
-                  rel="noopener noreferrer" target="_blank" className="">
-                  <svg className="mr-3 w-7 h-7 resize-none" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google-play"
-                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path fill="currentColor"
-                      d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z">
-                    </path>
-                  </svg>
-                  <div className="text-left">
-                    <div className="mb-1 text-xs">Get in on</div>
-                    <div className="-mt-1 font-sans text-sm font-semibold">Google Play</div>
-                  </div>
-                </a>
-              </Button>
+            <div className="center pt-10">
+              <div className="flex items-center space-x-4">
+                <ButtonStoreGoogle />
+                <ButtonStoreApple />
+              </div>
+            </div>
+            <div className="center pt-8">
+              <Image
+                src="/screenshots/device/0-homescreen.webp"
+                alt="Workout Notepad Page"
+                className="w-min"
+                height={300}
+                width={300}
+              />
             </div>
           </div>
-          <div className="w-full">
-            <div className="max-w-[600px] mx-auto">
-              <LottiePlayer animationData={lottieJson} loop={true} />
-              {/* <Image
-                src="/images/main-asset-clear.png"
-                alt="Workout Notepad Graphic"
-                width="800"
-                height="380"
-              /> */}
-            </div>
-
-          </div>
-          {/* <h1 className='text-5xl md:text-7xl tracking-tight font-bold text-center max-w-3xl mx-auto'>
-            Building Applications That Shine Against Your Competition.
-          </h1>
-          <p className='text-lg md:text-xl text-center max-w-2xl mx-auto'>We specialize in building applications that not just work, they feel great in the hands of your customers.</p>
-          <div className="flex space-x-2 mx-auto w-fit">
-            <Button size="lg" variant="secondary" asChild>
-              <a href={"#offerings"}>
-                <p className="">WHAT WE DO</p>
-              </a>
-            </Button>
-            <Button size="lg" asChild>
-              <a href={"/contact"}>
-                <p className="text-white">CONTACT US</p>
-              </a>
-            </Button>
-          </div> */}
         </div>
       </div>
-      <div className="bg-background border-t p-8">
-        <p className="text-accent font-black">WANT TO KNOW MORE?</p>
+      <div className="bg-background border-t min-h-[1000px]">
+        {/* <div className="p-8 pt-12">
+          <div className="space-y-8">
+            <h3 className="title-sm text-center">We Build For</h3>
+            <div className="max-w-3xl mx-auto">
+              <div className="grid grid-cols-3 md:grid-cols-6 gap-4 place-items-center">
+                <Link href="/services/ios"><SiIos size={50} /></Link>
+                <Link href="/services/android"><IoLogoAndroid size={50} /> </Link>
+                <Link href="/services/desktop#macos"><SiMacos size={50} /> </Link>
+                <Link href="/services/desktop#windows"><IoLogoWindows size={50} /> </Link>
+                <Link href="/services/desktop#linux"><SiArtixlinux size={50} /> </Link>
+                <Link href="/services/web"><FaChrome size={50} /> </Link>
+              </div>
+            </div>
+          </div>
+        </div> */}
       </div>
     </div>
   </div>
