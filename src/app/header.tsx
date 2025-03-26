@@ -15,33 +15,14 @@ import {
 } from "@/components/ui/navigation-menu"
 import React from "react"
 import { cn } from "@/lib/utils"
+import { MenuItem, menuItems } from "@/lib/menu"
 
-
-type HeaderItem = {
-    title: string
-    href: string
-    description: string
-}
 
 export default function Header() {
-
-    const download: HeaderItem[] = [
-        {
-            title: "App Store",
-            href: "https://apps.apple.com/pk/app/workout-notepad/id6453561144",
-            description: "Download today on the Apple App Store.",
-        },
-        {
-            title: "Google Play",
-            href: "https://play.google.com/store/apps/details?id=com.landersweb.workout_notepad_v2",
-            description: "Download today on the Google Play Store.",
-        },
-    ]
-
-    const createItems = (data: HeaderItem[], useLarge: boolean = true) => {
+    const createItems = (item: MenuItem, useLarge: boolean = true) => {
         if (useLarge) {
             return <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {data.map((component) => (
+                {item.links.map((component) => (
                     <ListItem
                         key={component.title}
                         title={component.title}
@@ -53,7 +34,7 @@ export default function Header() {
             </ul>
         } else {
             return <ul className="grid w-full gap-3 p-4 md:grid-cols-2">
-                {data.map((component) => (
+                {item.links.map((component) => (
                     <ListItemSmall
                         key={component.title}
                         title={component.title}
@@ -66,51 +47,43 @@ export default function Header() {
         }
     }
 
-    return <header className="sticky top-0 z-50 bg-background border-b flex h-16 items-center gap-4 px-4 md:px-6">
-        <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
-            <Link
-                href="/"
-                className="flex items-center gap-2 text-lg font-semibold md:text-base"
-            >
-                <Image
-                    src="/dumbbell.png"
-                    alt="W. Notepad Logo"
-                    height="50"
-                    width="50"
-                    className="shrink-0"
-                />
-            </Link>
-            <NavigationMenu>
-                <NavigationMenuList>
-                    <NavigationMenuItem>
-                        <NavigationMenuTrigger>Download</NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                            {createItems(download)}
-                        </NavigationMenuContent>
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                        <Link href="/premium" legacyBehavior passHref>
-                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                Premium
-                            </NavigationMenuLink>
-                        </Link>
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                        <Link href="/screenshots" legacyBehavior passHref>
-                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                Screenshots
-                            </NavigationMenuLink>
-                        </Link>
-                    </NavigationMenuItem>
-                    <NavigationMenuItem>
-                        <Link href="https://docs.workoutnotepad.co" legacyBehavior passHref>
-                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                Docs
-                            </NavigationMenuLink>
-                        </Link>
-                    </NavigationMenuItem>
-                </NavigationMenuList>
-            </NavigationMenu>
+    return <header className="sticky top-4 z-50 bg-background/30 backdrop-blur-2xl border rounded-[20px] flex h-16 items-center gap-4 px-4 mx-4 md:px-6">
+        <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6 justify-between w-full">
+            <div className="md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+                <Link
+                    href="/"
+                    className="flex items-center gap-2"
+                >
+                    <Image
+                        src="/dumbbell.png"
+                        alt="Sapphire NW Text Logo"
+                        height="50"
+                        width="50"
+                        className="shrink-0"
+                    />
+                    <h1 className="text-xl font-semibold md:text-lg">Workout Notepad</h1>
+                </Link>
+                <NavigationMenu>
+                    <NavigationMenuList>
+                        {menuItems.map((item, index) => <NavigationMenuItem key={`header-item-lg-${index}`}>
+                            <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
+                            <NavigationMenuContent>
+                                {createItems(item)}
+                            </NavigationMenuContent>
+                        </NavigationMenuItem>)}
+                        <NavigationMenuItem>
+                            <Link href="https://blog.workoutnotepad.co" legacyBehavior passHref>
+                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                    Blog
+                                </NavigationMenuLink>
+                            </Link>
+                        </NavigationMenuItem>
+                    </NavigationMenuList>
+                </NavigationMenu>
+            </div>
+            <div className="">
+                <Button asChild><Link href="/login">Login</Link></Button>
+            </div>
         </nav>
         <Sheet>
             <SheetTrigger asChild>
@@ -125,11 +98,11 @@ export default function Header() {
 
             </SheetTrigger>
             <Image
-                src="/dumbbell.png"
-                alt="W. Notepad Logo"
-                height="50"
-                width="50"
                 className="shrink-0 md:hidden"
+                src="/svg/sapphire-text-white.svg"
+                alt="Sapphire NW Text Logo"
+                height="40"
+                width="160"
             />
             <SheetContent side="left" className="h-full overflow-scroll pb-16">
                 <nav className="grid gap-6 text-lg font-medium">
@@ -138,17 +111,17 @@ export default function Header() {
                         className="flex items-center gap-2 text-lg font-semibold"
                     >
                         <Image
-                            src="/dumbbell.png"
-                            alt="W. Notepad Logo"
-                            height="30"
-                            width="30"
+                            src="/svg/sapphire-text-white.svg"
+                            alt="Sapphire NW Text Logo"
+                            height="40"
+                            width="160"
                             className="shrink-0"
                         />
                     </Link>
-                    <div className="">
-                        <h3>Download</h3>
-                        {createItems(download, false)}
-                    </div>
+                    {menuItems.map((item, index) => <div key={`header-item-sm-${index}`}>
+                        <h3>{item.title}</h3>
+                        {createItems(item, false)}
+                    </div>)}
                 </nav>
             </SheetContent>
         </Sheet>
@@ -165,7 +138,7 @@ const ListItem = React.forwardRef<
                 <a
                     ref={ref}
                     className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                         className
                     )}
                     {...props}
@@ -189,7 +162,7 @@ const ListItemSmall = React.forwardRef<
             <a
                 ref={ref}
                 className={cn(
-                    "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                    "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                     className
                 )}
                 {...props}

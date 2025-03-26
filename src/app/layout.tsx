@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google"
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "./header";
+import { Footer } from "./footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -112,7 +113,7 @@ export default function RootLayout({
 bg-[radial-gradient(circle,#73737350_1px,transparent_1px)] 
 bg-[size:20px_20px] 
 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_80%,transparent_100%)]"></div>
-        {/* <Footer /> */}
+        <Footer />
       </main>
     </body>
   </html>
