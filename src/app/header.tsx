@@ -81,9 +81,6 @@ export default function Header() {
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>
-            <div className="">
-                <Button asChild><Link href="/login">Login</Link></Button>
-            </div>
         </nav>
         <Sheet>
             <SheetTrigger asChild>
