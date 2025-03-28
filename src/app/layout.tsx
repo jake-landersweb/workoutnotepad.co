@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "./header";
 import { Footer } from "./footer";
+import { PostHogProvider } from "./posthog-provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -106,11 +107,13 @@ export default function RootLayout({
         fontSans.variable
       )}
     >
-      <main className="w-full h-full min-h-screen flex flex-col justify-between">
-        <Header />
-        {children}
-        <Footer />
-      </main>
+      <PostHogProvider>
+        <main className="w-full h-full min-h-screen flex flex-col justify-between">
+          <Header />
+          {children}
+          <Footer />
+        </main>
+      </PostHogProvider>
     </body>
   </html>
 }
