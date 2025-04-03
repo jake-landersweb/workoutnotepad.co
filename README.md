@@ -1,24 +1,36 @@
-# Go website template
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Meant to bootstrap a go run website
+## Getting Started
 
-## Requirements
+First, run the development server:
 
-- [Air](https://github.com/cosmtrek/air)
-- [TailwindCSS Standalone](https://tailwindcss.com/blog/standalone-cli)
-- Browser Sync: `npm install -g browser-sync`
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Stack
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- **Server:** [Golang](https://go.dev). Go is used to serve all the assets, handle the state, and compile the templates. the `text/template` library is used to handle html templating. These templates live in `./templates`.
-- **Server Reactivity:** [HTMX](https://htmx.org). HTMX is used to efficiently communicate from the client to the server, and update elements in the DOM without re-rendering the entire page.
-- **Client Reactivity:** [AlpineJS](https://alpinejs.dev). Alpine is used anywhere it does not make sense to use HTMX. This includes handling client state such as menus being open, etc.
-- **Styling:** [TailwindCSS](https://tailwindcss.com). Tailwind css is used to statically compile all lazy css classes to full form css inside of `./public/css/styles.css`.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Development
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-The `./dev.sh` script will handle creating a development runtime that will automatically recompile the app on any changes, and refresh those changes to the browser. The server will run on `http://localhost:3000`, and the browser update proxy will be on `http://localhost:3001`. Use this endpoint for viewing in the browser.
+## Learn More
 
-## Deployment
+To learn more about Next.js, take a look at the following resources:
 
-TODO
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

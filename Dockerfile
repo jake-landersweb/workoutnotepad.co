@@ -1,65 +1,45 @@
-# Node stage to handle Tailwind and JavaScript minification
-FROM node:current-alpine as node-builder
+# FROM https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile
+FROM node:22-alpine AS base
 
-# Set the working directory
+
+# install system deps
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# install npm packages
+COPY package.json package-lock.json ./
+RUN npm ci
 
-# Install Node dependencies including UglifyJS
-RUN npm install && npm install uglify-js -g
-
-# Copy Tailwind and JavaScript source files
-COPY styles.css .
-COPY tailwind.config.js .
-COPY public/js/ ./public/js/
-
-# Generate minified CSS file using Tailwind
-RUN npx tailwindcss -o ./public/css/app.css
-
-# Minify JavaScript files
-RUN find ./public/js -name '*.js' -exec uglifyjs --compress --mangle --output {} -- {} \;
-
-# Go stage to build the Go application
-FROM golang:alpine as go-builder
-
-# Install CA certificates
-RUN apk --no-cache add ca-certificates
-
-# Set the working directory
+# use a builder step
+FROM base AS builder
 WORKDIR /app
 
-# Copy go.mod and go.sum
-COPY go.mod go.sum ./
+# copy the source code and build
+COPY --from=deps /app/node_modules ./node_modules
+COPY . . 
+RUN npm run build
 
-# Download dependencies
-RUN go mod download
+FROM base AS runner
+WORKDIR /app
+ENV NODE_ENV=production
 
-# Copy the Go source files
-COPY . .
+# create a user group
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-# Build the application
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+# copy the public assets
+COPY --from=builder /app/public ./public
 
-# Final stage to prepare the runtime image
-FROM scratch
+# copy the compiled bundle
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Copy the CA certificates
-COPY --from=go-builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
-
-# Copy the Go binary
-COPY --from=go-builder /app/main .
-
-# Copy minified CSS from node-builder
-COPY --from=node-builder /app/public/css/app.css /public/css/
-
-# Copy static assets and templates
-COPY --from=go-builder /app/public /public
-COPY --from=go-builder /app/templates /templates
-
-# Expose the port the server listens on
+# set the runtime environment
+USER nextjs
 EXPOSE 3000
+ENV PORT=3000
 
-# Run the compiled binary
-CMD ["/main"]
+# run the server
+ENV HOSTNAME="0.0.0.0"
+CMD ["node", "server.js"]
