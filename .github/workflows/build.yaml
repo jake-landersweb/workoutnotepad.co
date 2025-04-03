@@ -1,18 +1,7 @@
 name: Docker Build
 
 on:
-  push:
-    braches:
-      - develop
-      - main
-    tags:
-      - "*"
   pull_request:
-  release:
-    types:
-      - created
-      - published
-      - released
 
 jobs:
   build:
@@ -35,62 +24,18 @@ jobs:
           username: ${{ secrets.GH_USER }}
           password: ${{ secrets.GH_PAT }}
       
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ghcr.io/${{ github.repository }}
-          tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-          labels: |
-            maintainer=Jake Landers
-            org.opencontainers.image.description=The docker image for the workoutnotepad site
-            org.opencontainers.image.vendor=Landersweb LLC
-            image.name=ghcr.io/${{ github.repository }}
-          flavor: |
-            latest=false
-      
-      - name: Prepare Environment
+      - name: Determine tag
+        id: tag
         run: |
-          REVISION=$(git rev-parse --short HEAD)
-          TAG=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}")
-          BUILD_TIME=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-          echo "REVISION=${REVISION}" >>${GITHUB_ENV}
-          echo "TAG=${TAG}" >>${GITHUB_ENV}
-          echo "BUILD_TIME=${BUILD_TIME}" >>${GITHUB_ENV}
+          short_sha=$(echo "${{ github.sha }}" | cut -c1-6)
+          echo "tag=${short_sha}" >> $GITHUB_OUTPUT
+        shell: bash
 
-      - name: Build and Push Image
-        uses: docker/build-push-action@v6
+      - name: Build and push API image
+        uses: docker/build-push-action@v4
         with:
-          push: true
-          context: .
           file: Dockerfile
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          platforms: linux/amd64,linux/arm64
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          build-args: |
-            BUILD_TIME=${{ env.BUILD_TIME }}
-            REVISION=${{ env.REVISION }}
-            TAG=${{ env.TAG }}
-
-      ########################################################
-      # PRODUCTION ONLY STEPS
-      ########################################################
-
-      - name: PRODUCTION STEP - Install Regctl for registry management
-        if: github.event_name == 'release' || github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
-        id: install_regctl
-        uses: iarekylew00t/regctl-installer@v3
-
-      - name: PRODUCTION STEP - Publish Image
-        if: github.event_name == 'release' || github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
-        id: publish_image
-        run: |
-          regctl registry set --tls=disabled ghcr.io
-          regctl image copy \
-            ghcr.io/${{ github.repository }}:${{ steps.meta.outputs.version }} \
-            ghcr.io/${{ github.repository }}:latest
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: ghcr.io/${{ github.repository }}:${{ steps.tag.outputs.tag }}
