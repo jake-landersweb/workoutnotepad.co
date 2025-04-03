@@ -1,4 +1,9 @@
 import ScreenshotSection, { ScreenshotSectionProps } from "@/components/screenshot-section/screenshot-section";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Exercises"
+}
 
 export default function ViewExercises() {
     const sections: ScreenshotSectionProps[] = [

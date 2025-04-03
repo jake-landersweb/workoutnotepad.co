@@ -20,12 +20,12 @@ const BASE_URL = "https://workoutnotepad.co"
 // https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 export const metadata: Metadata = {
   title: {
-    template: "%s",
-    default: TITLE
+    template: "%s | W. Notepad",
+    default: "Home | W. Notepad"
   },
   description: DESC,
   generator: 'Next.js',
-  applicationName: 'Sapphire NW Site',
+  applicationName: 'Workout Notepad',
   referrer: 'origin-when-cross-origin',
   keywords: ["Workouts", "Fitness", "Exercise", "App", "Mobile App", "Tracking", "Fitness Tracking", "Workout Tracking", "Workout Notebook App", "Workout Notepad", "Workout Logging App", "Exercise Tracking App", "Workout Tracking App"],
   authors: [

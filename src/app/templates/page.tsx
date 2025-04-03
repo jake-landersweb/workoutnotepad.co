@@ -1,7 +1,6 @@
 import { FetchTemplates } from "@/actions/workout-templates"
 import { queryClient } from "@/components/query-client"
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query"
-import TemplatesComponent from "./templates"
 import ViewTemplatesClient from "./client"
 
 export default async function ViewTemplates() {

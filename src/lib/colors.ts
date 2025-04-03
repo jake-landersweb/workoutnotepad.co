@@ -9,7 +9,7 @@ export function lightenHex(hex: string, amount: number): string {
     hex = hex.replace(/^#/, "");
 
     // Parse r, g, b values
-    let num = parseInt(hex, 16);
+    const num = parseInt(hex, 16);
     let r = (num >> 16) & 0xff;
     let g = (num >> 8) & 0xff;
     let b = num & 0xff;

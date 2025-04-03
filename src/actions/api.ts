@@ -31,7 +31,7 @@ export async function sendRequestV2<T>(props: SendRequestV1Props): Promise<T | u
 
         const headers = new Headers({ "x-api-key": apiKey })
 
-        var host = `https://${process.env.API_HOST}/v2${props.route}`
+        let host = `https://${process.env.API_HOST}/v2${props.route}`
         if (props.params !== undefined) {
             host += `?${props.params.toString()}`
         }

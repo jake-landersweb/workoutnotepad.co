@@ -1,7 +1,12 @@
 import { queryClient } from "@/components/query-client"
+import { Metadata } from "next"
 import { cookies } from "next/headers"
 import { notFound } from "next/navigation"
 import Markdown from 'react-markdown'
+
+export const metadata: Metadata = {
+    title: "Privacy Policy"
+}
 
 export default async function PrivacyPolicy() {
     try {

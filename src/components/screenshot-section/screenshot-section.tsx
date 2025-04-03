@@ -1,6 +1,5 @@
 import { FaCheck } from "react-icons/fa6"
 import SectionHeader from "../section-header"
-import Image from "next/image";
 import ScreenShotSectionImage from "./screenshot-section-img";
 
 export type ScreenshotSectionProps = {

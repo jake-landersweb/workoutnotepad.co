@@ -1,0 +1,6 @@
+.old
+.next
+node_modules
+Makefile
+README.md
+.env

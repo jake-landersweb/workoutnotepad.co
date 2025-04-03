@@ -7,7 +7,6 @@ import { useState } from "react"
 
 export default function ViewTemplatesClient() {
     const [searchText, setSearchText] = useState("")
-    const [categories, setCategories] = useState<string[]>([])
 
     const [cSearchText, setcSearchText] = useState("")
     const [cCategories, setcCategories] = useState<string[]>([])
@@ -17,7 +16,7 @@ export default function ViewTemplatesClient() {
 
         // set the cache fields
         setcSearchText(searchText)
-        setcCategories(categories)
+        setcCategories([])
     }
 
     return <div className="space-y-4 w-full">

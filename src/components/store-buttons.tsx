@@ -1,5 +1,3 @@
-import { Button } from "./ui/button"
-
 import { FaGooglePlay, FaApple } from "react-icons/fa";
 
 interface ButtonBaseProps {

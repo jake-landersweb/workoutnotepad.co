@@ -9,7 +9,6 @@ interface FooterProps {
         src: string;
         alt: string;
     };
-    tagline?: string;
     copyright?: string;
     bottomLinks?: {
         text: string;
@@ -23,7 +22,6 @@ const Footer = ({
         alt: "Workout Notepad Logo",
         url: "/",
     },
-    tagline = "A Workout App Designed to Get Out of Your Way.",
     copyright = "© 2025 Copyright. All rights reserved.",
     bottomLinks = [
         { text: "End User Agreement", url: "/eula" },

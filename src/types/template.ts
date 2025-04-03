@@ -4,7 +4,7 @@ export interface WTemplate {
     title: string;
     description: string | null;
     keywords: string | null;
-    metadata: any;
+    metadata: Map<string, string>;
     level: string | null;
     estTime: string | null;
     backgroundColor: string | null;

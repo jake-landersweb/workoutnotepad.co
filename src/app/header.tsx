@@ -1,7 +1,6 @@
 import { Menu } from "lucide-react"
 import Link from "next/link"
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import Image from "next/image"
 
 import {
@@ -155,6 +154,7 @@ const ListItem = React.forwardRef<
         </li>
     )
 })
+ListItem.displayName = "ListItem";
 
 const ListItemSmall = React.forwardRef<
     React.ElementRef<"a">,
@@ -178,3 +178,4 @@ const ListItemSmall = React.forwardRef<
         </li>
     )
 })
+ListItemSmall.displayName = "ListItem";
