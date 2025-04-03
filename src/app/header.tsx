@@ -1,6 +1,6 @@
 import { Menu } from "lucide-react"
 import Link from "next/link"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
@@ -56,7 +56,7 @@ export default function Header() {
                 >
                     <Image
                         src="/dumbbell.png"
-                        alt="Sapphire NW Text Logo"
+                        alt="Workout Notepad"
                         height="50"
                         width="50"
                         className="shrink-0"
@@ -73,7 +73,7 @@ export default function Header() {
                         </NavigationMenuItem>)}
                         <NavigationMenuItem>
                             <Link href="https://blog.workoutnotepad.co" legacyBehavior passHref>
-                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                <NavigationMenuLink className={navigationMenuTriggerStyle()} rel="noopener noreferrer" target="_blank">
                                     Blog
                                 </NavigationMenuLink>
                             </Link>
@@ -83,38 +83,44 @@ export default function Header() {
             </div>
         </nav>
         <Sheet>
-            <SheetTrigger asChild>
-                <Button
-                    variant="outline"
-                    size="icon"
-                    className="shrink-0 md:hidden"
-                >
+            <SheetTrigger className="md:hidden" asChild>
+                <div className="">
                     <Menu className="h-5 w-5" />
                     <span className="sr-only">Toggle navigation menu</span>
-                </Button>
-
+                </div>
             </SheetTrigger>
-            <Image
-                className="shrink-0 md:hidden"
-                src="/svg/sapphire-text-white.svg"
-                alt="Sapphire NW Text Logo"
-                height="40"
-                width="160"
-            />
+            <Link
+                href="/"
+                className="flex items-center gap-2 md:hidden"
+            >
+                <Image
+                    src="/dumbbell.png"
+                    alt="Workout Notepad"
+                    height="50"
+                    width="50"
+                    className="shrink-0"
+                />
+                <h1 className="text-xl font-semibold md:text-lg">Workout Notepad</h1>
+            </Link>
             <SheetContent side="left" className="h-full overflow-scroll pb-16">
+                <SheetHeader className="pb-4">
+                    <SheetTitle>
+                        <Link
+                            href="/"
+                            className="flex items-center gap-2 md:hidden"
+                        >
+                            <Image
+                                src="/dumbbell.png"
+                                alt="Workout Notepad"
+                                height="50"
+                                width="50"
+                                className="shrink-0"
+                            />
+                            <h1 className="text-xl font-semibold md:text-lg">Workout Notepad</h1>
+                        </Link>
+                    </SheetTitle>
+                </SheetHeader>
                 <nav className="grid gap-6 text-lg font-medium">
-                    <Link
-                        href="/"
-                        className="flex items-center gap-2 text-lg font-semibold"
-                    >
-                        <Image
-                            src="/svg/sapphire-text-white.svg"
-                            alt="Sapphire NW Text Logo"
-                            height="40"
-                            width="160"
-                            className="shrink-0"
-                        />
-                    </Link>
                     {menuItems.map((item, index) => <div key={`header-item-sm-${index}`}>
                         <h3>{item.title}</h3>
                         {createItems(item, false)}

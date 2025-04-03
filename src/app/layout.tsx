@@ -4,7 +4,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "./header";
 import { Footer } from "./footer";
-import { PostHogProvider } from "./posthog-provider";
+import React from "react";
+import { Providers } from "@/components/providers";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -99,6 +100,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return <html lang="en" suppressHydrationWarning>
     <head />
     <body
@@ -107,13 +109,13 @@ export default function RootLayout({
         fontSans.variable
       )}
     >
-      <PostHogProvider>
+      <Providers>
         <main className="w-full h-full min-h-screen flex flex-col justify-between">
           <Header />
           {children}
           <Footer />
         </main>
-      </PostHogProvider>
+      </Providers>
     </body>
   </html>
 }

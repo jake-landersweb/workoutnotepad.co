@@ -1,3 +1,4 @@
+import { ButtonStoreApple, ButtonStoreGoogle } from "@/components/store-buttons";
 import { menuItems } from "@/lib/menu";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,15 +23,15 @@ const Footer = ({
         alt: "Workout Notepad Logo",
         url: "/",
     },
-    tagline = "The workout notepad replacement.",
+    tagline = "A Workout App Designed to Get Out of Your Way.",
     copyright = "© 2025 Copyright. All rights reserved.",
     bottomLinks = [
-        { text: "Terms and Conditions", url: "#" },
-        { text: "Privacy Policy", url: "#" },
+        { text: "End User Agreement", url: "/eula" },
+        { text: "Privacy Policy", url: "/privacy-policy" },
     ],
 }: FooterProps) => {
     return (
-        <section className="pt-8 border border-t px-8">
+        <section className="pt-8 border border-t px-8 bg-muted">
             <div className="">
                 <footer>
                     <div className="grid grid-cols-2 gap-8 lg:grid-cols-3 max-w-[1800px] mx-auto">
@@ -49,17 +50,20 @@ const Footer = ({
                                     </div>
                                 </Link>
                             </div>
-                            <p className="mt-4 font-medium">{tagline}</p>
+                            <div className="flex flex-col space-y-2 w-fit pt-4">
+                                <ButtonStoreApple />
+                                <ButtonStoreGoogle />
+                            </div>
                         </div>
                         <div className={`grid grid-cols-2 lg:grid-cols-${menuItems.length} gap-8 col-span-2`}>
                             {menuItems.map((section, sectionIdx) => (
                                 <div key={sectionIdx}>
                                     <h3 className="mb-4 font-bold">{section.title}</h3>
-                                    <ul className="space-y-4 text-muted-foreground">
+                                    <ul className="space-y-4 text-muted-foreground text-sm">
                                         {section.links.map((link, linkIdx) => (
                                             <li
                                                 key={linkIdx}
-                                                className="font-medium hover:text-primary"
+                                                className="hover:text-foreground"
                                             >
                                                 <a href={link.href}>{link.title}</a>
                                             </li>

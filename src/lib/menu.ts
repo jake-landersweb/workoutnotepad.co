@@ -10,21 +10,6 @@ export interface MenuItem {
 
 export const menuItems: MenuItem[] = [
     {
-        title: "Download",
-        links: [
-            {
-                title: "For iOS",
-                href: "/download#ios",
-                description: "Download our application on the App Store.",
-            },
-            {
-                title: "For Android",
-                href: "/download#android",
-                description: "Download our application on the Google Play Store.",
-            },
-        ],
-    },
-    {
         title: "Features",
         links: [
             {
@@ -44,7 +29,7 @@ export const menuItems: MenuItem[] = [
             },
             {
                 title: "Downloadable Templates",
-                href: "/features/workouts#templates",
+                href: "/templates",
                 description: "Updated weekly, we work with experts in the industry to craft training templates.",
             },
             {
@@ -63,9 +48,24 @@ export const menuItems: MenuItem[] = [
                 description: "Data is power, and we want to put that power in your hands.",
             },
             {
-                title: "In-App Customizations",
-                href: "/features/customizations",
-                description: "We give you just enough room to use the app how you want.",
+                title: "Post-Workout Report",
+                href: "/features/visualization#post-workout-report",
+                description: "Auto-generated post-workout reports for your knowledge.",
+            },
+        ],
+    },
+    {
+        title: "Download",
+        links: [
+            {
+                title: "For iOS",
+                href: "/download#ios",
+                description: "Download our application on the App Store.",
+            },
+            {
+                title: "For Android",
+                href: "/download#android",
+                description: "Download our application on the Google Play Store.",
             },
         ],
     },
@@ -84,19 +84,19 @@ export const menuItems: MenuItem[] = [
             },
         ],
     },
-    {
-        title: "Contact",
-        links: [
-            {
-                title: "About Us",
-                href: "/about",
-                description: "We focus on creating genuine, long-tenured relationships with our clients.",
-            },
-            {
-                title: "Contact",
-                href: "/contact",
-                description: "Schedule a free talk to discuss how our offerings can work for you.",
-            },
-        ],
-    },
+    // {
+    //     title: "Contact",
+    //     links: [
+    //         {
+    //             title: "About Us",
+    //             href: "/about",
+    //             description: "We focus on creating genuine, long-tenured relationships with our clients.",
+    //         },
+    //         {
+    //             title: "Contact",
+    //             href: "/contact",
+    //             description: "Schedule a free talk to discuss how our offerings can work for you.",
+    //         },
+    //     ],
+    // },
 ]
