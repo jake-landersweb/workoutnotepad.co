@@ -52,6 +52,15 @@ jobs:
           flavor: |
             latest=false
       
+      - name: Prepare Environment
+        run: |
+          REVISION=$(git rev-parse --short HEAD)
+          TAG=$(echo "${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}")
+          BUILD_TIME=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+          echo "REVISION=${REVISION}" >>${GITHUB_ENV}
+          echo "TAG=${TAG}" >>${GITHUB_ENV}
+          echo "BUILD_TIME=${BUILD_TIME}" >>${GITHUB_ENV}
+
       - name: Build and Push Image
         uses: docker/build-push-action@v6
         with:
@@ -64,6 +73,8 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
+            BUILD_TIME=${{ env.BUILD_TIME }}
+            REVISION=${{ env.REVISION }}
             TAG=${{ env.TAG }}
 
       ########################################################
