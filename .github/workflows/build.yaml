@@ -64,7 +64,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            TAG=$${{ .env.TAG }}
+            TAG=${{ env.TAG }}
 
       ########################################################
       # PRODUCTION ONLY STEPS
