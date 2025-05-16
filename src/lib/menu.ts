@@ -3,6 +3,7 @@ export interface MenuItem {
     links: {
         title: string;
         href: string;
+        external?: boolean;
         description: string;
         icon?: string;
     }[];
@@ -81,6 +82,28 @@ export const menuItems: MenuItem[] = [
                 title: "Premium",
                 href: "/pricing#premium",
                 description: "View our reasonable premium tier, and what you gain with that.",
+            },
+        ],
+    },
+    {
+        title: "More",
+        links: [
+            {
+                title: "Docs",
+                href: "https://docs.workoutnotepad.co",
+                external: true,
+                description: "Learn more about how the app works on our documentation site.",
+            },
+            {
+                title: "Blog",
+                href: "https://blog.workoutnotepad.co",
+                external: true,
+                description: "View our blog regularly updated with fitness content.",
+            },
+            {
+                title: "Support",
+                href: "/support",
+                description: "Need extra help? We are here to answer any question that you may have.",
             },
         ],
     },

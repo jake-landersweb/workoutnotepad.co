@@ -18,8 +18,8 @@ build:
 
 
 # run the compiled docker image
-.PHONY: run
-run: build
+.PHONY: docker-run
+docker-run: build
 	docker run --env-file .env -p 3000:3000 "$(REPO_NAME):$(TAG)"
 
 

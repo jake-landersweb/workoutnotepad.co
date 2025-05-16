@@ -1,6 +1,6 @@
 "use client"
 
-import { FetchTemplates, FetchTemplatesResponse } from "@/actions/workout-templates"
+import { action_FetchTemplates, FetchTemplatesResponse } from "@/actions/workout-templates"
 import { useQuery } from "@tanstack/react-query"
 import ViewTemplateCell from "./template-cell"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -12,7 +12,7 @@ export default function TemplatesComponent({ searchText, categories }: {
 
     const templateResponse = useQuery({
         queryKey: ["workout-templates", searchText?.toLowerCase(), categories?.toSorted()],
-        queryFn: () => FetchTemplates(searchText ?? "", categories ?? []),
+        queryFn: () => action_FetchTemplates(searchText ?? "", categories ?? []),
     })
 
     if (templateResponse.isLoading) {

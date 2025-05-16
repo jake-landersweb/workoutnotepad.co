@@ -6,6 +6,7 @@ import Header from "./header";
 import { Footer } from "./footer";
 import React from "react";
 import { Providers } from "@/components/providers";
+import { Toaster } from "@/components/ui/sonner";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -115,6 +116,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </main>
+        <Toaster />
       </Providers>
     </body>
   </html>

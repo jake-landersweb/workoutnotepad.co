@@ -10,7 +10,6 @@ import {
     NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import React from "react"
 import { cn } from "@/lib/utils"
@@ -70,13 +69,6 @@ export default function Header() {
                                 {createItems(item)}
                             </NavigationMenuContent>
                         </NavigationMenuItem>)}
-                        <NavigationMenuItem>
-                            <Link href="https://blog.workoutnotepad.co" legacyBehavior passHref>
-                                <NavigationMenuLink className={navigationMenuTriggerStyle()} rel="noopener noreferrer" target="_blank">
-                                    Blog
-                                </NavigationMenuLink>
-                            </Link>
-                        </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>
