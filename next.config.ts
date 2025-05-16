@@ -2,6 +2,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  images: {
+    remotePatterns: [{
+      protocol: "https",
+      hostname: "github.com",
+      pathname: "/jake-landersweb/workout_notepad_v2/**"
+    }]
+  },
   async rewrites() {
     return [
       {

@@ -5,7 +5,7 @@ import { sendRequestV2 } from "./api"
 
 export type FetchTemplatesResponse = WorkoutTemplate[]
 
-export async function FetchTemplates(searchText?: string, categories?: string[]): Promise<FetchTemplatesResponse | undefined> {
+export async function action_FetchTemplates(searchText?: string, categories?: string[]): Promise<FetchTemplatesResponse | undefined> {
     return await sendRequestV2<FetchTemplatesResponse>({
         route: "/templates",
         method: "GET",

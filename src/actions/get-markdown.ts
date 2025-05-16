@@ -1,6 +1,6 @@
 "use server"
 
-export async function FetchMarkdown(documentName: string): Promise<string | undefined> {
+export async function action_FetchMarkdown(documentName: string): Promise<string | undefined> {
     try {
         const response = await fetch(`http://localhost:3000/public/md/${documentName}.md`, {
             method: "GET",
