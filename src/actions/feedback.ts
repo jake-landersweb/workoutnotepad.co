@@ -23,7 +23,7 @@ export async function action_SendFeedback(props: SendFeedbackProps) {
             throw "failed to get the base url. Set the `POCKETBASE_BASE_URL` environment variable"
         }
 
-        const resp = await fetch(`https://${baseUrl}/api/collections/wn_feedback_v2/records`, {
+        const resp = await fetch(`${baseUrl}/api/collections/wn_feedback_v2/records`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: encoded
