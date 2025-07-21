@@ -7,6 +7,7 @@ import { Footer } from "./footer";
 import React from "react";
 import { Providers } from "@/components/providers";
 import { Toaster } from "@/components/ui/sonner";
+import UmamiAnalytics from "@/components/umami";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -115,6 +116,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <UmamiAnalytics />
         </main>
         <Toaster />
       </Providers>
